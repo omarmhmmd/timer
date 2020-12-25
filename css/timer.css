@@ -1,0 +1,60 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial;
+  background-color: #444444;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .container {
+  width: 400px;
+  height: 475px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .timer {
+  width: 85%;
+  height: 85%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+body .container .timer .header {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+body .container .timer .center {
+  display: flex;
+  justify-content: center;
+  transform: rotate(-90deg);
+}
+body .container .timer .center .path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear alternate infinite;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+body .container .timer .footer p {
+  font-size: 12px;
+  text-align: center;
+}
