@@ -1,0 +1,127 @@
+/**** Global and unnested styles ****/
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.button-style {
+  font-family: Arial;
+  font-size: 12px;
+  background-color: white;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.25);
+  border-radius: 2.91007px;
+  padding: 5px 10px;
+  z-index: 1;
+  transition-duration: 0.4s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/**** End Global and unnested styles ****/
+body {
+  font-family: system-ui;
+  background-color: #444444;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .container {
+  width: 400px;
+  height: 475px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .timer {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+body .container .timer .header {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+body .container .timer .header .buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 32.5%;
+}
+body .container .timer .header .buttons .button-fctn {
+  border-radius: 100px;
+  cursor: pointer;
+}
+body .container .timer .header .buttons .button-fctn:hover {
+  box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.75);
+}
+body .container .timer .header .buttons .button-fctn:focus {
+  outline: 0;
+}
+body .container .timer .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+body .container .timer .center input {
+  font-size: 12px;
+  padding: 5px 0px;
+  text-align: center;
+  z-index: 1;
+  width: 50px;
+  background-color: white;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.25);
+  border-radius: 2.91007px;
+  transition-duration: 0.4s;
+}
+body .container .timer .center input:focus {
+  outline: 0;
+  box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.75);
+}
+body .container .timer .center ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(0, 0, 0, 0.5);
+}
+body .container .timer .center .timer-circle {
+  position: absolute;
+  transform: rotate(-90deg);
+  z-index: 0;
+}
+body .container .timer .center .path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+body .container .timer .footer p {
+  font-size: 12px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}

@@ -1,49 +1,77 @@
 <html>
   <head>
-    <title>Example App</title>
-    <link rel="stylesheet" href="css/timer.css" />
+    <title>Timer</title>
+    <link rel="stylesheet" href="lib/css/timer.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
 
   <body>
-    <div class="container">
+    <div id="app" class="container">
       <div class="timer">
         <div class="header">
-          <button>Timer</button>
+          <div class="button-style">Timer</div>
           <div class="buttons">
-            <button>start</button>
-            <button>reset</button>
+            <button @click = "startTimer" class="button-style button-fctn">start</button>
+            <button class="button-style button-fctn">reset</button>
           </div>
         </div>
         <div class="center">
+          <div class="button-style">
+            {{formattedTimeLeft}}
+          </div>
+          <input v-model="userMinutes" min="0" max="999" placeholder="minutes" type="number">
+        
+          </input>
           <div class="timer-circle">
             <svg
-              width="281"
-              height="280"
-              viewBox="0 0 281 280"
+              width="350"
+              height="350"
+              viewBox="0 0 350 350"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-             <g filter="url(#filter0_d)">
-               <circle class="path" cx="138" cy="138" r="84" stroke="white" stroke-width="80"/>
-               </g>
+              <g filter="url(#filter0_d)">
+                <circle
+                  class="path"
+                  cx="175"
+                  cy="175"
+                  r="106.355"
+                  stroke="white"
+                  stroke-width="101.29"
+                />
+              </g>
               <defs>
                 <filter
                   id="filter0_d"
-                  x="0.625763"
-                  y="0.299347"
-                  width="279.546"
-                  height="279.546"
+                  x="0.497413"
+                  y="0.497413"
+                  width="349.005"
+                  height="349.005"
                   filterUnits="userSpaceOnUse"
                   color-interpolation-filters="sRGB"
                 >
-                  <feGaussianBlur stdDeviation="7.67983" />
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  />
+                  <feMorphology
+                    radius="1.94473"
+                    operator="erode"
+                    in="SourceAlpha"
+                    result="effect1_dropShadow"
+                  />
+                  <feOffset />
+                  <feGaussianBlur stdDeviation="9.72366" />
                   <feColorMatrix
                     type="matrix"
-                    values="
-                    0 0 0 0 0
-                    0 0 0 0 1
-                    0 0 0 0 0
-                    0 0 0 0.5 0 "
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow"
                   />
                   <feBlend
                     mode="normal"
@@ -62,4 +90,6 @@
       </div>
     </div>
   </body>
+  
+  <script src="lib/js/timer.js"></script>
 </html>
