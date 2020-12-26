@@ -120,7 +120,7 @@ body {
         .path {
           stroke-dasharray: 1000;
           stroke-dashoffset: 1000;
-          // animation: dash 5s linear infinite;
+          animation: dash 5s linear infinite;
         }
 
         @keyframes dash {

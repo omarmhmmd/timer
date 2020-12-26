@@ -11,15 +11,16 @@
         <div class="header">
           <div class="button-style">Timer</div>
           <div class="buttons">
-            <button @click = "startTimer" class="button-style button-fctn">start</button>
+            <button v-show = "start" @click = "startTimer" class="button-style button-fctn">start</button>
+            <button v-show = "!start" @click = "pauseTimer" class="button-style button-fctn">pause</button>
             <button class="button-style button-fctn">reset</button>
           </div>
         </div>
         <div class="center">
-          <div class="button-style">
+          <div v-show = "!start" class="button-style">
             {{formattedTimeLeft}}
           </div>
-          <input v-model="userMinutes" min="0" max="999" placeholder="minutes" type="number">
+          <input v-show = "start" v-model="userMinutes" min="0" max="999" placeholder="minutes" type="number">
         
           </input>
           <div class="timer-circle">

@@ -1,1 +1,6 @@
 node_modules/
+.ds_store/
+.gitignore/
+package-lock.json/
+package.json/
+yarn.lock/
