@@ -111,7 +111,6 @@ body .container .timer .center .timer-circle {
 body .container .timer .center .path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 5s linear infinite;
 }
 @keyframes dash {
   from {
