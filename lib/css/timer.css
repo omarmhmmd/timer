@@ -109,12 +109,14 @@ body .container .timer .center .timer-circle {
   z-index: 0;
 }
 body .container .timer .center .path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
+  stroke-dasharray: var(--resetDashArray);
+  stroke-dashoffset: 669;
+  animation: dash var(--userSeconds) ease;
+  animation-play-state: var(--animState);
 }
 @keyframes dash {
   from {
-    stroke-dashoffset: 1000;
+    stroke-dashoffset: 669;
   }
   to {
     stroke-dashoffset: 0;

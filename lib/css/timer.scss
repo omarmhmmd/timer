@@ -118,14 +118,15 @@ body {
         }
 
         .path {
-          stroke-dasharray: 1000;
-          stroke-dashoffset: 1000;
-          // animation: dash 5s linear infinite;
+          stroke-dasharray: var(--resetDashArray);
+          stroke-dashoffset: 669;
+          animation: dash var(--userSeconds) ease;
+					animation-play-state: var(--animState);
         }
 
         @keyframes dash {
           from {
-            stroke-dashoffset: 1000;
+            stroke-dashoffset: 669;
           }
           to {
             stroke-dashoffset: 0;
