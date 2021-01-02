@@ -4,8 +4,11 @@ p {
   padding: 0;
 }
 
+button {
+  font-family: sans-serif;
+}
+
 .button-style {
-  font-family: Arial;
   font-size: 12px;
   background-color: white;
   border: none;
@@ -27,7 +30,7 @@ input::-webkit-inner-spin-button {
 
 /**** End Global and unnested styles ****/
 body {
-  font-family: system-ui;
+  font-family: sans-serif;
   background-color: #444444;
   height: 100%;
   width: 100%;
@@ -111,7 +114,7 @@ body .container .timer .center .timer-circle {
 body .container .timer .center .path {
   stroke-dasharray: var(--resetDashArray);
   stroke-dashoffset: 669;
-  animation: dash var(--userSeconds) ease;
+  animation: dash var(--userSeconds) linear;
   animation-play-state: var(--animState);
 }
 @keyframes dash {
