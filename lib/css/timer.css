@@ -31,7 +31,7 @@ input::-webkit-inner-spin-button {
 /**** End Global and unnested styles ****/
 body {
   font-family: sans-serif;
-  background-color: #444444;
+  background-color: white;
   height: 100%;
   width: 100%;
   margin: 0;

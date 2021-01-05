@@ -1,8 +1,17 @@
 {
+  "name": "Timer",
+  "productName": "Timer",
+  "version": "0.1.0",
+  "main": "timer.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . Timer"
+  },
   "dependencies": {
     "menubar": "^9.0.1"
   },
   "devDependencies": {
-    "electron": "^11.1.0"
+    "electron": "^11.1.1",
+    "electron-packager": "^15.2.0"
   }
 }
