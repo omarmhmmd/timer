@@ -27,19 +27,35 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
+
+a {
+	color: black;
+	text-decoration: none;
+}
 /**** End Global and unnested styles ****/
 
 
 body {
+	overflow: hidden;
   font-family: sans-serif;
   background-color: white;
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	
+	.timer-container {
+		display: flex;
+		width: 100%;
+		height: 95%;
+		// background-color: red;
+		align-content: center;
+		justify-content: space-evenly;
+		flex-direction: column;
+		align-items: center;
+	}
 
   .container {
     width: 400px;
@@ -48,6 +64,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+		border-radius: 15px;
+		box-shadow: 0px 0px 10.92029px 0.38406px rgba(0, 0, 0, 0.25);
 
     .timer {
       width: 80%;
@@ -60,6 +78,7 @@ body {
         width: 100%;
         display: flex;
         align-content: center;
+				align-items: center;
         justify-content: space-between;
 				
 				.buttons {
@@ -137,11 +156,49 @@ body {
         }
       }
 
-      .footer p {
+      .footer p,a {
         font-size: 12px;
         text-align: center;
 				color: rgba(0, 0, 0, 0.5);
+				
+				a:hover {
+					text-decoration: underline;
+				}
       }
     }
   }
+		
+	.info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 500px;
+		// background-color: green;
+		// height: 100px;
+		flex-direction: column;
+		
+		.info-buttons {
+			// margin-bottom: 25px;
+			width: 200px;
+			display: flex;
+			justify-content: space-evenly;
+			
+			.button-fctn {
+				border-radius: 100px;
+				cursor: pointer;
+			}
+			
+			.button-fctn:hover {
+				box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.75);
+			}
+			
+			.button-fctn:focus {
+				outline: 0;
+			}
+		}
+		
+		.info-text {
+			font-size: 13px;
+		}
+	}
 }
