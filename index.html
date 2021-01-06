@@ -1,8 +1,8 @@
 <html>
   <head>
     <title>Timer by omarmhmmd</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="lib/css/timer.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="lib/assets/icon/xxxTemplate@2x.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
@@ -12,6 +12,7 @@
       <div class="info">
         <div class="info-buttons" ><button class="button-style button-fctn"><a href="lib/app/Timer.zip">Download</a></button>
         <button class="button-style button-fctn"><a target="_blank" href="https://github.com/omarmhmmd/timer">Github</a></button>
+        <button class="button-style button-fctn"><a target="_blank" href="https://www.are.na/omar-mhmmd/timer-_ddu67jhnwe">Are.na</a></button>
         </div>
       </div>
       <div id="app" class="container">
@@ -31,8 +32,7 @@
           <div v-show = "timerPause" class="button-style">
             {{formattedTimeLeft}}
           </div>
-          <input v-on:keyup.enter="startTimer" v-show = "pause" v-model="userMinutes" min="0" max="999" placeholder="minutes" type="number">
-          </input>
+          <input v-on:keyup.enter="startTimer" v-show = "pause" v-model="userMinutes" min="0" max="999" placeholder="minutes" type="number"></input>
           <div class="timer-circle">
             <svg
               width="350"

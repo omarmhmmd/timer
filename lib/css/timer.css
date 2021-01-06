@@ -40,15 +40,17 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
 body .timer-container {
+  overflow: hidden;
   display: flex;
   width: 100%;
-  height: 95%;
+  height: 100%;
   align-content: center;
   justify-content: space-evenly;
   flex-direction: column;
@@ -63,6 +65,12 @@ body .container {
   justify-content: center;
   border-radius: 15px;
   box-shadow: 0px 0px 10.92029px 0.38406px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 1024px) {
+  body .container {
+    width: 325px;
+    height: 475px;
+  }
 }
 body .container .timer {
   width: 80%;
@@ -128,6 +136,11 @@ body .container .timer .center .timer-circle {
   transform: rotate(-90deg);
   z-index: 0;
 }
+@media (max-width: 1024px) {
+  body .container .timer .center .timer-circle svg {
+    width: 300px;
+  }
+}
 body .container .timer .center .path {
   stroke-dasharray: var(--resetDashArray);
   stroke-dashoffset: 669;
@@ -154,11 +167,10 @@ body .info {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
   flex-direction: column;
 }
 body .info .info-buttons {
-  width: 200px;
+  width: 250px;
   display: flex;
   justify-content: space-evenly;
 }
