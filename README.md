@@ -9,7 +9,6 @@ A simple & thoughtful menu bar timer app.
 <br>
 <img width = "50%" src="lib/assets/doc/screenshot-1.png" alt="">
 <br>
-<br>
 <a href="https://timer.omarmhmmd.com/">timer.omarmhmmd.com</a>
 </div>
 
@@ -27,4 +26,9 @@ A timer app that puts an emphasis on simplicity and thoughtfulness, void of infi
 $ yarn add menubar
 $ electron timer.js
 ```
+
+
+
+
+
 
