@@ -155,7 +155,7 @@ body .container .timer .center .timer-circle {
 body .container .timer .center .path {
   stroke-dasharray: var(--resetDashArray);
   stroke-dashoffset: 0;
-  animation: dash var(--userMinutes) linear;
+  animation: dash var(--min2Sec) linear;
   animation-play-state: var(--animState);
 }
 @keyframes dash {
