@@ -36,7 +36,7 @@ a {
 
 
 body {
-	overflow: hidden;
+	// overflow: hidden;
   font-family: sans-serif;
   background-color: white;
   margin: 0;
@@ -65,7 +65,7 @@ body {
 		
 		@media (max-width: 1024px) {
 			width: 325px;
-			height: 475px;
+			height: 70%;
 		}
 		
     background-color: white;
@@ -116,7 +116,22 @@ body {
 				width: 100%;
 				height: 100%;
 				
-				input {
+				.stacked-mobile {
+					display: none;
+				}
+				
+				@media (max-width: 1024px) {
+					.stacked-mobile {
+						display: block;
+						position: absolute
+					}
+					
+					.stacked-desktop {
+						display: none;
+					}
+				}
+				
+				.inputBtn {
 					font-size: 12px;
 					padding: 5px 0px;
 					text-align: center;
@@ -130,9 +145,10 @@ body {
 					box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.25);
 					border-radius: 2.91007px;
 					transition-duration: 0.4s;
+					
 				}
 				
-				input:focus {
+				.inputBtn:focus {
 					outline: 0;
 					box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.75);
 				}
@@ -155,18 +171,20 @@ body {
 
         .path {
           stroke-dasharray: var(--resetDashArray);
-          stroke-dashoffset: 669;
-          animation: dash var(--userSeconds) linear;
+          stroke-dashoffset: 0;
+          animation: dash var(--userMinutes) linear;
 					animation-play-state: var(--animState);
         }
 
         @keyframes dash {
-          from {
-            stroke-dashoffset: 669;
-          }
-          to {
-            stroke-dashoffset: 0;
-          }
+          0% {
+						stroke-dashoffset: 669;
+						stroke-dasharray: 669;
+					}
+					100% {
+						stroke-dashoffset: 0;
+						stroke-dasharray: 669;
+					}
         }
       }
 
