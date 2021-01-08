@@ -1,99 +1,126 @@
 <html>
-  <head>
-    <title>Timer</title>
-    <link rel="stylesheet" href="lib/css/timer.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  </head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link rel="shortcut icon" href="lib/assets/icon/xxxTemplate@2x.png" type="image/x-icon">
+		<link rel="stylesheet" href="lib/css/timer.css" />
+		<script src="dist/easytimer.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://unpkg.com/vue-meta/dist/vue-meta.min.js"></script>
+	</head>
 
-  <body>
-    <div id="app" class="container">
-      <div class="timer">
-        <div class="header">
-          <div class="button-style">Timer</div>
-          <div class="buttons">
-            <button v-show = "!start" @click = "startTimer" class="button-style button-fctn">start</button>
-            <button v-show = "start" @click = "pauseTimer" class="button-style button-fctn">pause</button>
-            <button @click = "reset" class="button-style button-fctn">reset</button>
-          </div>
-        </div>
-        <div class="center">
-          <div v-show = "start" class="button-style">
-            {{formattedTimeLeft}}
-          </div>
-          <div v-show = "timerPause" class="button-style">
-            {{formattedTimeLeft}}
-          </div>
-          <input v-on:keyup.enter="startTimer" v-show = "pause" v-model="userMinutes" min="0" max="999" placeholder="minutes" type="number">
-          </input>
-          <div class="timer-circle">
-            <svg
-              width="350"
-              height="350"
-              viewBox="0 0 350 350"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d)">
-                <circle
-                  :style="timerBar"
-                  class="path"
-                  cx="175"
-                  cy="175"
-                  r="106.355"
-                  stroke="white"
-                  stroke-width="101.29"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d"
-                  x="0.497413"
-                  y="0.497413"
-                  width="349.005"
-                  height="349.005"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  />
-                  <feMorphology
-                    radius="1.94473"
-                    operator="erode"
-                    in="SourceAlpha"
-                    result="effect1_dropShadow"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="9.72366" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-        </div>
-        <div class="footer">
-          <p>software by omarmhmmd</p>
-        </div>
-      </div>
-    </div>
-  </body>
-  
-  <script src="lib/js/timer-vue.js"></script>
+		<body>
+			<div class="timer-container">
+				<!-- <div class="info">
+					<div class="info-buttons" ><button class="button-style button-fctn"><a href="lib/app/Timer.zip">Download</a></button>
+					<button class="button-style button-fctn"><a target="_blank" href="https://github.com/omarmhmmd/timer">Github</a></button>
+					<button class="button-style button-fctn"><a target="_blank" href="https://www.are.na/omar-mhmmd/timer-_ddu67jhnwe">Are.na</a></button>
+					</div>
+				</div> -->
+				<div id="app" class="container">
+				<div class="timer">
+					<div class="header">
+						<div class="button-style">Timer</div>
+						<div class="buttons">
+							<button v-show = "paused" @click = "restart" class="button-style button-fctn">start</button>
+							<button v-show = "showInput" @click = "starter" class="button-style button-fctn">start</button>
+							<button v-show = "started  && !paused" @click = "pause" class="button-style button-fctn">pause</button>
+							<button @click = "reset" class="button-style button-fctn">reset</button>
+						</div>
+					</div>
+					<div class="center">
+						<div class="stacked-desktop">
+							<div v-show="!showInput" class="button-style">
+								{{formattedTime}}
+							</div>
+						</div>
+						<div class="stacked-mobile">
+							<div v-show="!showInput" class="button-style">
+								{{formattedTime}}
+							</div>
+							<button style="width: 50px" v-show="showInput" @click = "starter" class="button-style button-fctn">start</button>
+						</div>
+						<input class ="inputBtn" v-on:keyup.enter="starter" v-show="showInput"  v-model="userMinutes" min="0" max="999" placeholder="minutes" type="number"></input>
+						<div class="timer-circle">
+							<svg
+								width="350"
+								height="350"
+								viewBox="0 0 350 350"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<g filter="url(#filter0_d)">
+									<circle
+										:style="timerBar"
+										class="path"
+										cx="175"
+										cy="175"
+										r="106.355"
+										stroke="white"
+										stroke-width="101.29"
+									/>
+								</g>
+								<defs>
+									<filter
+										id="filter0_d"
+										x="0.497413"
+										y="0.497413"
+										width="349.005"
+										height="349.005"
+										filterUnits="userSpaceOnUse"
+										color-interpolation-filters="sRGB"
+									>
+										<feFlood flood-opacity="0" result="BackgroundImageFix" />
+										<feColorMatrix
+											in="SourceAlpha"
+											type="matrix"
+											values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+										/>
+										<feMorphology
+											radius="1.94473"
+											operator="erode"
+											in="SourceAlpha"
+											result="effect1_dropShadow"
+										/>
+										<feOffset />
+										<feGaussianBlur stdDeviation="9.72366" />
+										<feColorMatrix
+											type="matrix"
+											values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+										/>
+										<feBlend
+											mode="normal"
+											in2="BackgroundImageFix"
+											result="effect1_dropShadow"
+										/>
+										<feBlend
+											mode="normal"
+											in="SourceGraphic"
+											in2="effect1_dropShadow"
+											result="shape"
+										/>
+									</filter>
+								</defs>
+							</svg>
+						</div>
+					</div>
+					<div class="footer">
+						<p>software by <a target="_blank" href="http://omarmhmmd.com/">omarmhmmd</a></p>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="info">
+				<div class="info-text">
+					<p>A simple & thoughtful menu bar timer app.</p>
+				</div>
+				<br>
+				<div class="info-buttons" >
+				<button class="button-style button-fctn"><a target="_blank" href="https://omarmhmmd.substack.com/p/000">+</a></button>
+				</div>
+			</div> -->
+		</div>
+		</body>
+		
+		<script src="lib/js/timer-vue.js"></script>
 </html>

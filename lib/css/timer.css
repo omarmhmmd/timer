@@ -28,16 +28,31 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 /**** End Global and unnested styles ****/
 body {
   font-family: sans-serif;
   background-color: white;
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+body .timer-container {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
 }
 body .container {
@@ -47,6 +62,8 @@ body .container {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10.92029px 0.38406px rgba(0, 0, 0, 0.25);
 }
 body .container .timer {
   width: 80%;
@@ -59,6 +76,7 @@ body .container .timer .header {
   width: 100%;
   display: flex;
   align-content: center;
+  align-items: center;
   justify-content: space-between;
 }
 body .container .timer .header .buttons {
@@ -83,7 +101,19 @@ body .container .timer .center {
   width: 100%;
   height: 100%;
 }
-body .container .timer .center input {
+body .container .timer .center .stacked-mobile {
+  display: none;
+}
+@media (max-width: 1024px) {
+  body .container .timer .center .stacked-mobile {
+    display: block;
+    position: absolute;
+  }
+  body .container .timer .center .stacked-desktop {
+    display: none;
+  }
+}
+body .container .timer .center .inputBtn {
   font-size: 12px;
   padding: 5px 0px;
   text-align: center;
@@ -98,7 +128,7 @@ body .container .timer .center input {
   border-radius: 2.91007px;
   transition-duration: 0.4s;
 }
-body .container .timer .center input:focus {
+body .container .timer .center .inputBtn:focus {
   outline: 0;
   box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.75);
 }
@@ -113,20 +143,49 @@ body .container .timer .center .timer-circle {
 }
 body .container .timer .center .path {
   stroke-dasharray: var(--resetDashArray);
-  stroke-dashoffset: 669;
-  animation: dash var(--userSeconds) linear;
+  stroke-dashoffset: 0;
+  animation: dash var(--min2Sec) linear;
   animation-play-state: var(--animState);
 }
 @keyframes dash {
-  from {
+  0% {
     stroke-dashoffset: 669;
+    stroke-dasharray: 669;
   }
-  to {
+  100% {
     stroke-dashoffset: 0;
+    stroke-dasharray: 669;
   }
 }
-body .container .timer .footer p {
+body .container .timer .footer p, body .container .timer a {
   font-size: 12px;
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
+}
+body .container .timer .footer p a:hover, body .container .timer a a:hover {
+  text-decoration: underline;
+}
+body .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+body .info .info-buttons {
+  width: 250px;
+  display: flex;
+  justify-content: space-evenly;
+}
+body .info .info-buttons .button-fctn {
+  border-radius: 100px;
+  cursor: pointer;
+}
+body .info .info-buttons .button-fctn:hover {
+  box-shadow: 0px 0px 6.92029px -1.38406px rgba(0, 0, 0, 0.75);
+}
+body .info .info-buttons .button-fctn:focus {
+  outline: 0;
+}
+body .info .info-text {
+  font-size: 13px;
 }
