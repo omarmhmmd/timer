@@ -1,5 +1,5 @@
 <div align = "center">
-<img width = "15%" src="lib/assets/icon/timer.png" alt="">
+<img width = "20%" src="lib/assets/icon/timer.png" alt="">
 <h1>
 Timer
 </h1>
