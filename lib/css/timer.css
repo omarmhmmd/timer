@@ -68,7 +68,8 @@ body .container {
 
 @media only screen and (max-width: 600px) {
   body .container {
-    height: 90vh;
+    height: 62.5%;
+    background-color: red !important;
   }
 }
 
